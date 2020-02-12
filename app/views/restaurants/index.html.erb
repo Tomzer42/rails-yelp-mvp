@@ -1,0 +1,19 @@
+<h1>The restaurants</h1>
+<div class="row">
+  <% @restaurants.each do |restaurant| %>
+    <div class="col-12 col-sm-6 col-xl-4 mt-2">
+      <div class="card">
+        <img src="https://picsum.photos/500/<%= restaurant.id + 200 %>" class="card-img-top" alt="my restaurant">
+        <div class="card-body">
+          <h5 class="name"><%= link_to restaurant.name, restaurant_path(restaurant) %></h5>
+          <h6 class="category"><%= restaurant.category %></h6>
+          <p class="address"><%= restaurant.address %></p>
+          <p class="phone_number"><%= restaurant.phone_number %></p>
+          <%= link_to "Add a review", new_restaurant_review_path(restaurant), class:"btn btn-primary"%>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
